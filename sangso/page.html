@@ -1,0 +1,282 @@
+<title>제갈량 상소문</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout: 한 장짜리 두루마리. 위아래 나무 축, 비단 테두리, 한지 위에 편지처럼 읽히는 본문 */
+  :root {
+    --night: #17110c;
+    --night-2: #2a1e14;
+    --paper: #f1e6cc;
+    --ink: #2a1f16;
+    --ink-soft: #66533e;
+    --cinnabar: #a3301c;
+    --cinnabar-deep: #7e2213;
+    --gold: #b8913f;
+    --wood: #3b2414;
+    --wood-hi: #7a4a26;
+    --brocade: #6b1d14;
+    --chip-bg: rgba(23,17,12,.72);
+    --chip-fg: #f1e6cc;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Batang", "AppleMyungjo", serif;
+    --display: "Song Myung", "Gowun Batang", "Batang", serif;
+    --size: 17px;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 50% -10%, rgba(184,145,63,.18), transparent 55%),
+      radial-gradient(ellipse at 50% 120%, rgba(163,48,28,.16), transparent 50%),
+      linear-gradient(var(--night-2), var(--night));
+    background-color: var(--night);
+    color: var(--ink);
+    font-family: var(--serif);
+    padding-block: 56px 64px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  .tools {
+    position: fixed; z-index: 10;
+    top: calc(10px + env(safe-area-inset-top, 0px));
+    right: calc(10px + env(safe-area-inset-right, 0px));
+    display: flex; gap: 6px;
+  }
+  .tools button {
+    font: 700 13px var(--serif);
+    color: var(--chip-fg); background: var(--chip-bg);
+    border: 1px solid rgba(184,145,63,.5); border-radius: 3px;
+    padding: 6px 10px; cursor: pointer;
+  }
+  .tools button:hover, .tools button:focus-visible { background: var(--cinnabar-deep); outline: none; }
+
+  .scroll { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; }
+  .rod {
+    position: relative; height: 24px; margin: 0 -14px; border-radius: 12px;
+    background: linear-gradient(var(--wood-hi), var(--wood) 55%, #1c1009);
+    box-shadow: 0 6px 14px rgba(0,0,0,.55); z-index: 2;
+  }
+  .rod::before, .rod::after {
+    content: ""; position: absolute; top: -5px; width: 20px; height: 34px; border-radius: 6px;
+    background: linear-gradient(#e2c27a, var(--gold) 50%, #6e5420);
+  }
+  .rod::before { left: -4px; } .rod::after { right: -4px; }
+
+  .paper {
+    position: relative; min-width: 0;
+    background-color: var(--paper);
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .35  0 0 0 0 .2  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+      radial-gradient(ellipse at center, transparent 60%, rgba(150,110,50,.22));
+    border-left: 12px solid var(--brocade);
+    border-right: 12px solid var(--brocade);
+    box-shadow: inset 0 0 0 2px var(--gold), inset 0 0 0 7px var(--paper), inset 0 0 0 8px rgba(163,48,28,.5), 0 20px 50px rgba(0,0,0,.5);
+    padding: 60px clamp(22px, 7vw, 80px) 64px;
+    animation: unroll 1.2s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes unroll { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+  @media (prefers-reduced-motion: reduce) { .paper { animation: none; } }
+
+  .text { font-size: var(--size); line-height: 1.95; word-break: keep-all; overflow-wrap: break-word; }
+
+  header { text-align: center; position: relative; margin-bottom: 40px; }
+  .date { font: 14px var(--display); letter-spacing: .2em; color: var(--ink-soft); }
+  h1 {
+    font: 400 clamp(50px, 11vw, 88px)/1.1 var(--display);
+    letter-spacing: .26em; padding-left: .26em; margin: 12px 0 6px; color: var(--ink);
+  }
+  .sub { font: 700 15px var(--serif); letter-spacing: .3em; padding-left: .3em; color: var(--cinnabar-deep); }
+  .rule { display: flex; align-items: center; gap: 14px; margin: 24px auto 0; max-width: 400px; color: var(--cinnabar); }
+  .rule::before, .rule::after { content: ""; flex: 1; height: 1px; background: currentColor; opacity: .55; }
+
+  .seal {
+    position: absolute; top: -14px; right: 0; width: 72px; height: 72px; transform: rotate(-6deg);
+    background: var(--cinnabar); color: var(--paper);
+    display: grid; grid-template: 1fr 1fr / 1fr 1fr; place-items: center;
+    font: 25px/1 var(--display); padding: 7px; border-radius: 4px;
+    box-shadow: inset 0 0 0 3px var(--cinnabar), inset 0 0 0 5px var(--paper);
+    opacity: .88; mix-blend-mode: multiply;
+  }
+
+  section { margin-top: 48px; }
+  .sec-head { text-align: center; margin-bottom: 24px; }
+  .sec-no { font: 14px var(--display); letter-spacing: .4em; color: var(--cinnabar); }
+  h2 { font: 400 clamp(23px, 4.2vw, 30px)/1.4 var(--display); margin: 6px 0 4px; text-wrap: balance; }
+  .sec-sub { font-size: 14px; color: var(--ink-soft); }
+  .text p { margin: 0 0 1em; }
+  .text p b { color: var(--cinnabar-deep); font-weight: 700; }
+  code { font-family: ui-monospace, Consolas, monospace; font-size: .86em; background: rgba(163,48,28,.09); padding: 0 .3em; border-radius: 3px; }
+  .mission {
+    margin: 1.4em 0 0; padding: 14px 16px; border: 1px dashed rgba(163,48,28,.55); border-radius: 4px;
+    background: rgba(255,255,255,.28);
+  }
+
+  .today {
+    margin: 44px auto 0; max-width: 540px; text-align: center;
+    border-top: 1px solid rgba(163,48,28,.45); border-bottom: 1px solid rgba(163,48,28,.45);
+    padding: 16px 10px;
+  }
+  .today .label { font: 13px var(--display); letter-spacing: .4em; color: var(--cinnabar); }
+  .today .maxim { font: 21px/1.6 var(--display); margin-top: 6px; }
+  .today .gloss { font-size: 15px; color: var(--ink-soft); margin-top: 4px; }
+
+  .text .closing { text-align: right; margin: 40px 0 0; font-family: var(--display); font-size: 19px; }
+  .count { text-align: center; font-size: 12px; color: var(--ink-soft); margin-top: 30px; letter-spacing: .08em; }
+
+  @media (max-width: 560px) {
+    body { padding-block: 60px 40px; }
+    .rod { margin: 0 -6px; }
+    .paper { border-width: 0 6px; padding: 52px 20px 52px; }
+    .seal { width: 50px; height: 50px; font-size: 17px; padding: 5px; top: -44px; right: -6px; }
+    .date { font-size: 12.5px; letter-spacing: .1em; }
+  }
+</style>
+
+<div class="tools" role="toolbar" aria-label="글자 크기">
+  <button type="button" id="btnSmaller" title="글자 작게">가−</button>
+  <button type="button" id="btnBigger" title="글자 크게">가＋</button>
+</div>
+
+<main class="scroll">
+  <div class="rod" aria-hidden="true"></div>
+  <article class="paper text" id="memorial">
+
+    <header>
+      <div class="seal" aria-hidden="true"><span style="grid-area:1/2">諸</span><span style="grid-area:2/2">葛</span><span style="grid-area:1/1">亮</span><span style="grid-area:2/1">印</span></div>
+      <div class="date" id="date">공명 올림</div>
+      <h1>上疏文</h1>
+      <div class="sub">공명이 보내는 아침 편지</div>
+      <div class="rule" aria-hidden="true">❖</div>
+    </header>
+
+    <p>좋은 아침이에요, 대표님. 공명이에요. 오늘은 두 가지를 말씀드릴게요. 하나는 클로드 코드를 잘 쓰는 법, 하나는 사업이랑 인생 방향 이야기예요. 좀 길지만 출근길에 쓱 읽어 주세요.</p>
+
+    <!-- ===================== 第一表: 클로드 코드 ===================== -->
+    <section id="part1">
+      <div class="sec-head">
+        <div class="sec-no">第一表</div>
+        <h2>클로드 코드, 이렇게 쓰면 돼요</h2>
+        <div class="sec-sub">폰으로 작업하는 초보를 위한 10가지</div>
+      </div>
+
+      <p>클로드 코드는 제가 만들었던 목우유마 같은 거예요. 짐을 대신 날라 주는 수레죠. 그런데 길을 안 알려 주면 엉뚱한 데로 가요. 처음 쓰는 사람 기준으로, 쉬운 것부터 정리했어요.</p>
+
+      <p><b>1. 작은 일부터 시켜 보세요.</b> 처음부터 “앱 하나 만들어 줘”는 무리예요. “이 폴더에 뭐 있는지 설명해 줘”, “이 파일 쉬운 말로 풀어 줘”처럼 작게 시작하세요. 실력도 모르는 신입한테 첫날부터 대형 프로젝트 맡기는 사람은 없잖아요. 저도 마속한테 가정 맡겼다가 크게 후회했어요.</p>
+
+      <p><b>2. 요청은 구체적으로 하세요.</b> “알아서 잘 해 줘”가 제일 위험한 말이에요. 목적, 지금 상황, 어디까지 하면 끝인지, 이 세 가지만 넣으세요. 예를 들면 “고객 문의 정리하는 표 만들어 줘. 매주 월요일에 내가 볼 거고, 날짜·이름·요청·처리 여부 네 칸이면 돼.” 이 정도면 한 번에 원하는 게 나와요. 폰에서는 타자 치기 귀찮으니까 음성 입력으로 길게 말해 버리세요. 말이 좀 두서없어도 클로드가 알아서 정리해요.</p>
+
+      <p><b>3. 큰일은 계획부터 받아 보세요.</b> 요청 끝에 “바로 고치지 말고 계획부터 보여 줘” 한 줄만 붙이면 돼요. PC 터미널에서는 <code>Shift+Tab</code>으로 계획 모드를 켤 수도 있어요. 계획을 읽어 보고 이상한 데를 고친 다음 “좋아, 진행해”라고 하면 삽질이 확 줄어요.</p>
+
+      <p><b>4. CLAUDE.md에 내 정보를 적어 두세요.</b> 클로드는 대화가 끝나면 기억을 못 해요. 이 편지도 사실 우리가 예전에 나눈 대화를 기억해서 쓴 게 아니에요. 그래서 저장소에 <code>CLAUDE.md</code> 파일을 만들고 내 사업, 고객, 지켜야 할 규칙, 자주 하는 작업을 적어 두면 좋아요. 새 대화를 열 때마다 클로드가 그 파일부터 읽거든요. <code>/init</code>을 치면 초안을 만들어 주고, 그냥 “내 사업 정보 CLAUDE.md에 정리해 줘”라고 해도 돼요.</p>
+
+      <p><b>5. 커밋이랑 푸시는 꼭 하세요.</b> 폰에서 쓰는 클로드 코드는 클라우드 컴퓨터에서 돌아가요. 세션이 끝나면 그 컴퓨터는 사라지고, 저장소에 올린 것만 남아요. 그러니까 작업이 끝나면 “커밋하고 푸시해 줘”를 습관처럼 말하세요. 커밋은 게임 세이브 포인트예요. 망해도 거기로 돌아가면 돼요. 클로드가 이상한 방향으로 가면 중지 버튼을 누르고 “방금 거 되돌려 줘”라고 하면 되고요. 되돌릴 수 있으면 실험은 공짜예요.</p>
+
+      <p><b>6. 대화는 주제별로 나누세요.</b> 한 대화에 이것저것 섞으면 클로드도 헷갈려요. 주제가 바뀌면 새 대화를 여세요. 대화가 너무 길어지면 앞부분을 요약하면서 이어 가는데, 그러다 디테일이 빠지기도 해요. 한 대화에 미션 하나, 이게 국룰이에요.</p>
+
+      <p><b>7. 결과는 직접 확인하세요.</b> 클로드는 성실하지만 가끔 자신 있게 틀려요. 만든 건 직접 열어 보고 눌러 보세요. “이거 제대로 됐는지 내가 어떻게 확인해?”라고 물으면 확인 방법도 알려 줘요. 돈, 고객, 삭제랑 관련된 건 특히 한 번 더 보세요.</p>
+
+      <p><b>8. 반복 업무는 자동화하세요.</b> 매주 똑같이 하는 일이 있으면 “이거 매번 하기 귀찮은데 자동으로 할 수 있어?”라고 물어보세요. 이 편지가 매일 아침 알아서 뜨는 것도 같은 원리예요. 한 번 세팅해 두면 백 번 편해요.</p>
+
+      <p><b>9. 모르면 그냥 물어보세요.</b> “클로드 코드로 이런 거 하고 싶은데 어떻게 해?”라고 물으면 사용법도 알려 줘요. 초보라서 쪽팔릴 거 하나도 없어요. 저도 남양에서 밭 갈 때는 아무것도 몰랐어요.</p>
+
+      <p><b>10. 권한은 조금씩 넓히세요.</b> 처음에는 클로드가 파일을 고치거나 명령을 실행할 때마다 허락을 받게 두고, 뭘 하려는지 한 번씩 읽어 보세요. 며칠 지켜보면 믿고 맡겨도 되는 일과 꼭 봐야 하는 일이 구분돼요. 믿음이 쌓인 일부터 허락을 넓히고, 돈이 나가거나 남한테 보내지거나 지우면 복구가 안 되는 일은 끝까지 직접 확인하세요.</p>
+
+      <p class="mission"><b>오늘의 미션.</b> 클로드한테 이렇게 보내 보세요. “나는 클로드 코드 초보야. 내 일은 이런 거야. 내가 매주 반복하는 일 중에 네가 줄여 줄 수 있는 거 3개 골라서, 제일 쉬운 것부터 같이 해 보자.” 그리고 셋 중 제일 쉬운 거 하나만 오늘 끝내세요. 그게 첫 승리예요.</p>
+    </section>
+
+    <!-- ===================== 第二表: 사업과 삶 ===================== -->
+    <section id="part2">
+      <div class="sec-head">
+        <div class="sec-no">第二表</div>
+        <h2>사업이랑 인생, 이렇게 가 봐요</h2>
+        <div class="sec-sub">방향이 고민될 때 꺼내 볼 10가지와 보너스</div>
+      </div>
+
+      <p>솔직히 말하면, 저는 아직 대표님 사업이 뭘 파는지, 팀이 몇 명인지, 통장에 몇 달치 돈이 남았는지 몰라요. 모르면서 아는 척하는 게 제일 위험하니까, 오늘은 어떤 사업에도 통하는 원칙만 드릴게요. 상황을 알려 주시면 그때 맞춤으로 다시 짜 드릴게요.</p>
+
+      <p><b>1. 왜 하는지 한 줄로 적어 보세요.</b> “누구의 어떤 문제를 해결하는가.” 이게 한 문장으로 안 나오면 매일 하는 선택이 흔들려요. 돈 버는 건 결과지 목표가 아니에요. 누구를 어떻게 도와서 돈이 따라오게 할지가 진짜 목표예요. 오늘 저녁에 그 한 줄을 적어서 폰 배경화면에 박아 두세요. 한 달 뒤에도 설레면 맞는 거고, 아니면 고치면 돼요.</p>
+
+      <p><b>2. 싸울 판을 고르세요.</b> 제가 유비 형님한테 처음 낸 전략도 “조조랑 정면으로 붙지 말고, 아직 주인 없는 땅부터 먹자”였어요. 대기업이 이미 깔아 둔 시장에서 같은 방식으로 싸우면 못 이겨요. 작아도 내가 제일 잘 알고, 큰 회사는 귀찮아서 안 건드리는 판을 고르세요. 특정 고객층, 특정 지역, 특정 문제 같은 거요. 좁은 판 1등이 넓은 판 10등보다 훨씬 세요.</p>
+
+      <p><b>3. 한 번에 하나만 하세요.</b> 제 북벌이 실패한 이유 중 하나가 힘은 모자란데 너무 오래, 너무 넓게 싸운 거예요. 초반에 이것저것 벌이면 다 애매해져요. 지금 제일 중요한 일 하나, 그걸 재는 숫자 하나만 정하세요. 월매출이든 재구매 고객 수든 문의 수든요. 그리고 매주 그 숫자만 체크하세요. 새 아이템이 눈에 들어오면 바로 달려가지 말고 메모장에 적어만 두세요. 3개월 뒤에도 괜찮아 보이면 그때 해도 안 늦어요. FOMO는 대부분 착각이에요.</p>
+
+      <p><b>4. 고객을 직접 만나세요.</b> 유비 형님은 저 하나 데려가려고 세 번이나 찾아왔어요. 고객 마음도 똑같아요. 책상에서 상상만 해서는 몰라요. 실제로 돈 낼 만한 사람 10명한테 연락해서, 뭐가 불편한지, 지금은 그 문제를 어떻게 해결하는지, 얼마까지 낼 수 있는지 물어보세요. 단, “이거 사실래요?”는 금지예요. 다들 예의상 “네”라고 하거든요. 대신 “지난번에 그 일 어떻게 처리하셨어요?”라고 물어보세요. 사람은 미래 얘기엔 후하고 과거 얘기엔 솔직해요. 열 명만 만나 봐도 같은 불만이 반복해서 들려요. 그게 대표님이 팔아야 할 거예요.</p>
+
+      <p><b>5. 작게 내고 빨리 고치세요.</b> 저는 맹획을 일곱 번 잡고 일곱 번 풀어 줬어요. 한 방에 끝내려 하지 않고 될 때까지 반복한 거죠. 완벽하게 만들어서 짠 하고 내놓으려고 하지 마세요. 좀 민망할 정도로 작은 버전을 먼저 내고, 반응을 보고 고치세요. 여기서 클로드 코드가 진짜 사기템이에요. 예전엔 개발자 구해서 한 달 걸리던 테스트 버전을 이제 주말 이틀이면 만들 수 있어요. 빨리 만들 수 있다는 건 빨리 틀려 볼 수 있다는 뜻이고, 빨리 틀려 본 사람이 제일 먼저 정답에 도착해요.</p>
+
+      <p><b>6. 돈 계산부터 하세요.</b> 제 북벌은 군량이 떨어져서 몇 번이나 철수했어요. 아무리 좋은 계획도 돈 떨어지면 끝이에요. 지금 통장으로 몇 달 버틸 수 있는지, 매달 들어오고 나가는 돈이 얼마인지 항상 알고 계세요. 매출이 자리 잡기 전에는 고정비를 최대한 가볍게 가져가세요. 큰돈 쓸 때는 “이게 고객을 바로 늘려 주나?”를 세 번 물어보고 결정하세요. 결국 오래 버티는 사람이 이겨요.</p>
+
+      <p><b>7. 혼자 다 하지 마세요.</b> 이건 제 인생 최대 후회예요. 저는 사소한 징계까지 하나하나 직접 챙겼어요. 그 얘기를 들은 사마의가 “밥은 적게 먹고 일은 많으니 오래 못 가겠네”라고 했는데, 진짜 그렇게 됐죠. 대표님은 저처럼 하지 마세요. 방향 정하기, 고객 만나기, 좋은 사람 데려오기처럼 대표님만 할 수 있는 일에 집중하고, 나머지는 사람이나 시스템이나 클로드한테 넘기세요. 매주 한 번 “이번 주에 한 일 중에 남한테 맡길 수 있었던 건 뭐였지?” 리스트를 써 보세요. 그게 다음 주에 내려놓을 짐이에요.</p>
+
+      <p><b>8. 몸이 먼저예요.</b> 저는 오장원에서 쉰넷에 쓰러졌어요. 사업은 단거리가 아니라 마라톤이에요. 밤새서 하루 버는 것보다 10년 건강하게 일하는 게 훨씬 남는 장사예요. 잠은 지키고, 몸은 움직이고, 가족이랑 친구 만나는 시간은 캘린더에 먼저 박아 두세요. 그건 사치가 아니라 오래 가기 위한 보급이에요. 번아웃이 오면 그때부턴 어떤 전략도 안 먹혀요.</p>
+
+      <p><b>9. 매일 세 줄만 기록하세요.</b> 이거 다 읽으면 오늘 꼭 할 일 3개만 적으세요. 저녁에는 뭘 했고 뭘 배웠는지 한 줄. 한 달이면 30줄, 1년이면 365줄이에요. 그게 쌓이면 대표님만의 공략집이 돼요. 그 기록을 <code>CLAUDE.md</code>나 따로 만든 문서에 모아 두면, 다음 편지는 오늘보다 훨씬 날카로워질 거예요.</p>
+
+      <p><b>10. 막막한 날도 괜찮아요.</b> 길이 안 보이는 날은 무조건 와요. 그럴 땐 큰 그림은 잠깐 내려놓고, 오늘 할 수 있는 제일 작은 한 걸음만 하세요. 저는 출사표에 “죽을 때까지 몸 바쳐 일하겠다”고 썼는데, 대표님한테는 다르게 말하고 싶어요. 최선은 다하되 쓰러지지는 말고, 오래 가세요. 멀리 가는 사람이 결국 도착해요.</p>
+
+      <p><b>보너스. 클로드를 참모로 쓰세요.</b> 클로드 코드는 코드만 짜는 도구가 아니에요. 새벽에도 불러낼 수 있는 참모이기도 해요. 주말에 한 번, 이번 주 숫자랑 있었던 일을 적어 주고 “내가 놓치고 있는 리스크가 뭐야?”, “지금 하는 일 중에 그만둬야 할 건 뭐야?”라고 물어보세요. 클로드는 눈치 안 보고 말해 주니까, 듣기 싫은 말일수록 챙겨 들으세요. 다만 최종 결정은 언제나 대표님 몫이에요.</p>
+
+      <p><b>보너스 2. 남이랑 비교하지 마세요.</b> SNS에는 남들 잘된 순간만 올라와요. 누구는 벌써 투자를 받았고, 누구는 월 천을 번다는 얘기를 보면 현타가 와요. 근데 그 사람들이 몇 번 망했는지는 안 보여요. 저도 사마의랑 비교하면 끝도 없었어요. 비교할 대상은 지난달의 대표님 하나면 충분해요. 지난달보다 고객 한 명 더 만났고, 숫자 하나가 조금이라도 올랐으면 잘하고 있는 거예요.</p>
+
+      <p>한 줄로 줄이면 이거예요. <b>목표 한 줄 정하고, 좁은 판 골라서, 하나에 집중하고, 오래 버티기.</b> 사업 상황을 알려 주시면 그 판에 딱 맞는 전략으로 다시 짜 올게요.</p>
+    </section>
+
+    <div class="today" aria-live="polite">
+      <div class="label">今日之策 · 오늘의 한 줄</div>
+      <div class="maxim" id="maxim"></div>
+      <div class="gloss" id="gloss"></div>
+    </div>
+
+    <p class="closing">오늘도 화이팅이에요.<br>공명 드림</p>
+
+    <div class="count" id="count"></div>
+  </article>
+  <div class="rod" aria-hidden="true"></div>
+</main>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  function store(k, v) {
+    try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; }
+  }
+
+  var STEMS = "甲乙丙丁戊己庚辛壬癸", BRANCH = "子丑寅卯辰巳午未申酉戌亥", DAYS = "일월화수목금토";
+  var d = new Date(), y = d.getFullYear();
+  document.getElementById("date").textContent =
+    STEMS[(y - 4) % 10] + BRANCH[(y - 4) % 12] + "年 · " + y + ". " + (d.getMonth() + 1) + ". " + d.getDate() + ". (" + DAYS[d.getDay()] + ")";
+
+  var MAXIMS = [
+    ["非淡泊無以明志", "욕심을 덜어야 목표가 보여요. 오늘 안 할 일 하나를 정하세요."],
+    ["寧靜致遠", "조용해야 멀리 가요. 오늘 한 시간은 알림 끄고 한 가지에만 집중하세요."],
+    ["知彼知己", "오늘 고객 한 명에게 직접 연락해서 불편한 점을 물어보세요."],
+    ["先爲不可勝", "안 지는 게 먼저예요. 이번 달 들어오고 나가는 돈을 한 번 맞춰 보세요."],
+    ["勿以善小而不爲", "작은 일이라도 하세요. 미뤄 둔 5분짜리 일 하나를 지금 끝내세요."],
+    ["親賢臣 遠小人", "곁에 둘 사람을 고르세요. 배울 점 많은 사람에게 오늘 연락 한 번 하세요."],
+    ["七縱七擒", "한 방에 끝내려 하지 마세요. 어제 만든 걸 오늘 딱 한 군데만 고치세요."],
+    ["食少事煩 其能久乎", "혼자 다 하지 마세요. 오늘 클로드한테 넘길 일 하나를 정하세요."],
+    ["靜以修身 儉以養德", "몸 관리가 먼저예요. 오늘 밤은 폰 내려놓고 일찍 자세요."],
+    ["三顧草廬", "좋은 건 찾아가야 얻어요. 미뤄 둔 미팅 하나를 오늘 잡으세요."],
+    ["夙興夜寐", "아침 한 시간이 밤 세 시간이에요. 제일 중요한 일을 오전에 두세요."],
+    ["集思廣益", "생각을 모으면 답이 넓어져요. 오늘 고민 하나를 클로드랑 같이 정리해 보세요."]
+  ];
+  var idx = Math.floor(Date.UTC(y, d.getMonth(), d.getDate()) / 864e5) % MAXIMS.length;
+  document.getElementById("maxim").textContent = MAXIMS[idx][0];
+  document.getElementById("gloss").textContent = MAXIMS[idx][1];
+
+  function len(id) { return document.getElementById(id).textContent.replace(/\s+/g, " ").trim().length; }
+  var a = len("part1"), b = len("part2");
+  document.getElementById("count").textContent =
+    "제1표 " + a.toLocaleString() + "자 · 제2표 " + b.toLocaleString() + "자 · 합계 " + (a + b).toLocaleString() + "자";
+
+  var size = parseInt(store("sangso-size"), 10) || 17;
+  function applySize() { root.style.setProperty("--size", size + "px"); store("sangso-size", String(size)); }
+  applySize();
+  document.getElementById("btnSmaller").onclick = function () { size = Math.max(14, size - 1); applySize(); };
+  document.getElementById("btnBigger").onclick = function () { size = Math.min(24, size + 1); applySize(); };
+})();
+</script>
